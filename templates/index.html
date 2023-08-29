@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="static/styles.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>PDF Chat</title>
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Interaction</h1>
+        <button id="clearButton" onclick="clearAll()">Clear</button>
+        <div class="role-selection">
+            <label for="role">Select Your Role:</label>
+            <select id="role">
+                <option value="None">Select</option>
+                <option value="engineer">Engineer</option>
+                <option value="hr">HR</option>
+                <option value="marketer">Marketer</option>
+            </select>
+        </div>
+
+        <div id="uploadSection">
+            <label for="pdfDOC">Upload PDF:</label>
+            <div class="file-upload" id="fileUpload">
+            
+                <label for="pdfFile" class="file-label" id="fileLabel" ondrop="handleFileDrop(event)" ondragover="handleFileDragOver(event)" ondragleave="handleFileDragLeave(event)">
+                    <span class="file-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span class="file-text">Drop or Select PDF file</span>
+                </label>
+                <input type="file" id="pdfFile" name="file" accept=".pdf" required onchange="handleFileSelect()" class="hidden-input">
+            </div>
+            <div id="uploadResponse"></div>
+        </div>
+       
+        <div id="chatSection" class="hidden">
+            <h2>Chat Section:</h2>
+            <div id="chatContainer"></div> 
+            <div class="button-container">    
+              <button id="regenerateButton" onclick="regenerateFunction()">Regenerate</button>
+            </div>
+            <div class="question-container">
+                    
+                <div class= "input-container">
+                    <input type="text" id="question" placeholder="Enter your question here..." >
+                    <button id="chatButton" onclick="chatWithPDF()">ask</button>
+               
+                </div>    
+            
+            </div>
+        </div>    
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
